@@ -75,3 +75,5 @@ const level1 = [
 ];
 
 loadLevel(level1)
+
+alert("reached the end of the code")
