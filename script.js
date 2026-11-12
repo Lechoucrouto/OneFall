@@ -14,4 +14,4 @@ function setPos(x, y) {
 //INITIALIZATION
 //=======================================
 
-setPos(200, 300)
+setPos(200, 270)
