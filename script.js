@@ -14,6 +14,8 @@ const TILES = {
     1: {texture: "grass.png", solid: true}
 }
 
+let tiles = []
+
 //function setup
 function setPos(x, y) {
     PLAYER.style.left = x + "px"
@@ -40,7 +42,7 @@ function loadLevel(map) {
 //class setup
 class Tile {
     constructor(gridX, gridY, typeId) {
-        const blueprint = TILE_TYPES[typeId];
+        const blueprint = TILES[typeId];
 
         this.x = gridX * TILE_SIZE;
         this.y = gridY * TILE_SIZE;
@@ -71,3 +73,5 @@ const level1 = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
+
+loadLevel(level1)
