@@ -3,9 +3,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0px;
+    margin: 0;
 }
 
 img{
-    width: 200;
+    width: 200px;
 }
