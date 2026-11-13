@@ -8,7 +8,7 @@ const PLAYER = document.getElementById("player")
 let playerX = 0
 let playerY = 0
 
-const TILE_SIZE = 32
+const TILE_SIZE = 64
 
 const TILES = {
     1: {texture: "grass.png", solid: true}
