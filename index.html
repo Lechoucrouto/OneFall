@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phaser Hello World</title>
+  <title>Phaser Pixel Art Test</title>
   <style>
     body {
       margin: 0;
@@ -12,6 +12,9 @@
       align-items: center;
       min-height: 100vh;
       background: #1a1a1a;
+    }
+    canvas {
+      image-rendering: pixelated;
     }
   </style>
 </head>
@@ -23,18 +26,26 @@
       width: 800,
       height: 600,
       backgroundColor: '#2d2d2d',
+      pixelArt: true, // stops the annoying ass fucking blurring of my pixel art
       scene: {
+        preload() {
+          // loqds p1
+          this.load.image('p1', 'p1.png');
+        },
         create() {
-          const text = this.add.text(400, 300, 'Hello, Phaser!', {
+          const text = this.add.text(400, 240, 'Hello, Phaser!', {
             fontSize: '48px',
             color: '#ffffff',
-            fontFamily: 'sans-serif'
+            fontFamily: 'monospace'
           }).setOrigin(0.5);
 
-          // Gently bob the text up and down to verify the game loop is running
+          // Renders bobert robertson :) :thumbsup:!
+          const player = this.add.sprite(400, 340, 'p1');
+          player.setScale(4); // makes bigger i think??
+
           this.tweens.add({
             targets: text,
-            y: 260,
+            y: 220,
             duration: 1000,
             ease: 'Sine.easeInOut',
             yoyo: true,
