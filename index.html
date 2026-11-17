@@ -41,7 +41,7 @@
 
           // Renders bobert robertson :) :thumbsup:!
           const player = this.add.sprite(400, 340, 'p1');
-          player.setScale(0.5); // he was so big so i made him smol
+          player.setScale(1); // he was so big so i made him smol
 
           this.tweens.add({
             targets: text,
@@ -54,11 +54,11 @@
 
           this.tweens.add({
             targets: player,
-            scaleX: "+=200",
-            duration: 10000,
+            scaleX: "+=50",
+            duration: 5000,
             ease: "Sine.easeInOut",
             yoyo: false,
-            repeat: 1
+            repeat: 0
           })
         }
       }
