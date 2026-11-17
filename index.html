@@ -43,6 +43,7 @@
           const player = this.add.sprite(400, 340, 'p1');
           player.setScale(1); // he was so big so i made him smol
 
+          // makes text bouncy
           this.tweens.add({
             targets: text,
             y: 220,
@@ -51,7 +52,8 @@
             yoyo: true,
             repeat: -1
           });
-
+          
+          // makes bobert robertson tweak out
           this.tweens.add({
             targets: player,
             scaleX: "+=50",
