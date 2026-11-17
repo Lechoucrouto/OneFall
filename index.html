@@ -1,57 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script src="phaser.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phaser Hello World</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+    }
+  </style>
 </head>
 <body>
-
-    <script>
-    class Example extends Phaser.Scene
-    {
-        preload ()
-        {
-            this.load.setBaseURL('https://cdn.phaserfiles.com/v385');
-
-            this.load.image('sky', 'assets/skies/space3.png');
-            this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-            this.load.image('red', 'assets/particles/red.png');
-        }
-
-        create ()
-        {
-            this.add.image(400, 300, 'sky');
-
-            const particles = this.add.particles(0, 0, 'red', {
-                speed: 100,
-                scale: { start: 1, end: 0 },
-                blendMode: 'ADD'
-            });
-
-            const logo = this.physics.add.image(400, 100, 'logo');
-
-            logo.setVelocity(100, 200);
-            logo.setBounce(1, 1);
-            logo.setCollideWorldBounds(true);
-
-            particles.startFollow(logo);
-        }
-    }
-
+  <script src="phaser.min.js"></script>
+  <script>
     const config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        scene: Example,
-        physics: {
-            default: 'arcade',
-            arcade: {
-                gravity: { y: 200 }
-            }
+      type: Phaser.AUTO,
+      width: 800,
+      height: 600,
+      backgroundColor: '#2d2d2d',
+      scene: {
+        create() {
+          const text = this.add.text(400, 300, 'Hello, Phaser!', {
+            fontSize: '48px',
+            color: '#ffffff',
+            fontFamily: 'sans-serif'
+          }).setOrigin(0.5);
+
+          // Gently bob the text up and down to verify the game loop is running
+          this.tweens.add({
+            targets: text,
+            y: 260,
+            duration: 1000,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1
+          });
         }
+      }
     };
 
-    const game = new Phaser.Game(config);
-    </script>
-
+    new Phaser.Game(config);
+  </script>
 </body>
 </html>
