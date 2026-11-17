@@ -51,6 +51,15 @@
             yoyo: true,
             repeat: -1
           });
+
+          this.tweens.add({
+            targets: player,
+            scaleX: "+=200",
+            duration: 10000,
+            ease: "Sine.easeInOut",
+            yoyo: false,
+            repeat: 1
+          })
         }
       }
     };
