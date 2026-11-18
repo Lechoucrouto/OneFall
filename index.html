@@ -29,7 +29,7 @@
       pixelArt: true, // stops the annoying ass fucking blurring of my pixel art
       scene: {
         preload() {
-          // loqds p1
+          // loads images
           this.load.image('p1', 'p1.png');
         },
         create() {
@@ -52,16 +52,6 @@
             yoyo: true,
             repeat: -1
           });
-
-          // makes bobert robertson tweak out
-          this.tweens.add({
-            targets: player,
-            scaleX: "+=50",
-            duration: 5000,
-            ease: "Sine.easeInOut",
-            yoyo: false,
-            repeat: 0
-          })
         }
       }
     };
