@@ -31,6 +31,7 @@
         preload() {
           // loads images
           this.load.image('p1', 'p1.png');
+          this.load.image('grass', 'grass.png');
         },
         create() {
           const text = this.add.text(400, 240, 'OneFall', {
@@ -42,6 +43,10 @@
           // Renders bobert robertson :) :thumbsup:!
           const player = this.add.sprite(400, 340, 'p1');
           player.setScale(3); // he bigger now
+
+          // renders the grass and makes it big
+          const grass = this.add.sprite(400, 300, 'grass');
+          grass.setScale(3);
 
           // makes text bouncy
           this.tweens.add({
