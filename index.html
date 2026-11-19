@@ -23,7 +23,7 @@
   <script>
     const config = {
       type: Phaser.AUTO,
-      width: 800,
+      width: 768,
       height: 600,
       backgroundColor: '#2d2d2d',
       pixelArt: true, // stops the annoying ass fucking blurring of my pixel art
@@ -34,11 +34,16 @@
           this.load.image('grass', 'grass.png');
         },
         create() {
-          const text = this.add.text(400, 240, 'OneFall', {
-            fontSize: '48px',
-            color: '#ffffff',
-            fontFamily: 'monospace'
-          }).setOrigin(0.5);
+          // limit camera and physics to the tower
+          const towerwidth = 8 * 96
+          const towerheight = 50 * 96
+
+          this.camera.main.setBounds(0, 0, towerwidth, towerheight)
+          this.physics.world.setBounds(0, 0, towerwidth, towerheight)
+
+          this.camera.main.startFollow(player, true)
+
+          
 
           // Renders bobert robertson :) :thumbsup:!
           const player = this.add.sprite(400, 340, 'p1');
@@ -48,7 +53,14 @@
           const grass = this.add.sprite(400, 434, 'grass');
           grass.setScale(3);
 
-          // makes text bouncy
+          // reanders text and makes it bouncy
+
+          const text = this.add.text(400, 240, 'OneFall', {
+            fontSize: '48px',
+            color: '#ffffff',
+            fontFamily: 'monospace'
+          }).setOrigin(0.5);
+
           this.tweens.add({
             targets: text,
             y: 220,
